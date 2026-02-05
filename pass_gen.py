@@ -1,11 +1,11 @@
 import streamlit as st
 import random
 import string
-from st_copy_to_clipboard import st_copy_to_clipboard # নতুন লাইব্রেরি
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 st.title("Python Shikder's Password Generator 🔐")
 
-# সেশন স্টেট সেটআপ
+# সেশন স্টেট সেটআপ (পাসওয়ার্ড ধরে রাখার জন্য)
 if "generated_password" not in st.session_state:
     st.session_state.generated_password = ""
 
@@ -35,14 +35,12 @@ if st.button("Generate Password"):
     random.shuffle(pass_list)
     st.session_state.generated_password = "".join(pass_list)
 
-# পাসওয়ার্ড দেখানোর এবং কপি করার অংশ
+# পাসওয়ার্ড দেখানোর অংশ
 if st.session_state.generated_password:
+    st.write("---") # একটি ডিভাইডার লাইন
     st.write("### Your Password:")
-    
-    # এটি পাসওয়ার্ডটি একটি বক্সে দেখাবে
     st.code(st.session_state.generated_password, language="")
     
-    # এটি সেই ম্যাজিক বাটন যা মোবাইলে সরাসরি কপি করবে
+    # কপি বাটন (এটি এখন Cloud-এ বাটন হিসেবে দেখা যাবে)
     st_copy_to_clipboard(st.session_state.generated_password)
-    
-    st.info("Click the 'Copy' button above to save your password.")
+    st.info("Tap the Copy button to save it!")
