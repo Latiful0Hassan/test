@@ -1,1 +1,2 @@
 st-copy-to-clipboard
+pypdf
