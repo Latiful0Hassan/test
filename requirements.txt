@@ -1,2 +1,6 @@
 st-copy-to-clipboard
 pypdf
+streamlit
+pandas
+openpyxl
+
